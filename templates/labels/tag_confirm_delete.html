@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+Are you sure you want to delete this <strong>{{object.name}}</strong>?
+<form action="/labels/delete/{{object.id}}/" method="POST">{% csrf_token %}
+<input type="submit" value="Delete"/>
+</form>
+
+<form action="/labels/list/" method="GET">
+<input type="submit" value="Cancel"/>
+</form>
+{% endblock %}

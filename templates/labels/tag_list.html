@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "labels/nav_bar.html" %}
+<h2>All Labels</h2>
+<div>
+{% for tag in object_list %}
+<strong>{{tag.name}}</strong> v{{tag.tagversion_set.all.0.version_num}} by {{tag.author}}  Entered: {{tag.entered}}
+  <form action="/labels/print/{{tag.id}}/">
+  	<input type="submit" value="Print"/>
+  </form>
+  <form action="/labels/edit/{{tag.id}}/">
+  	<input type="submit" value="Edit"/>
+  </form>
+  <form action="/labels/delete/{{tag.id}}/" method="GET">
+  	<input type="submit" value="Delete"/>
+  </form>
+  <hr />
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "labels/nav_bar.html" %}
+<h2>Create a New Tag</h2>
+<form action="/labels/post/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}
