@@ -1,4 +1,5 @@
 # Django settings for testbed project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -44,7 +45,8 @@ USE_I18N = True
 USE_L10N = True
 
 
-ROOT_PATH = "/home/wilblack/django-projects/testbed/"
+#ROOT_PATH = "/home/wilblack/django-projects/testbed/"
+ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = ''
@@ -105,7 +107,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'testbed.urls'
 
 TEMPLATE_DIRS = (
-    ROOT_PATH+"templates/"
+    os.path.join(ROOT_PATH,"templates/")
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
