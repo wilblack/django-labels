@@ -1,0 +1,6 @@
+*.pyc
+*.db
+static/logos/*
+labels/static/logos/*
+labels/static/qrcodes/*
+

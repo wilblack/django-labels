@@ -18,8 +18,9 @@ urlpatterns = patterns('',
     
     (r'post/$', TagFormPreview(TagForm)),
     (r'list/$', object_list, {'queryset': Tag.objects.all()}),
-    (r'$', object_list, {'queryset': Tag.objects.all()}),
     url(r'print/(?P<tag_id>\d+)/$', 'labels.views.print_pdf'),
+    (r'$', object_list, {'queryset': Tag.objects.all()}),
+    
     # url(r'^$', 'testbed.views.home', name='home'),
     # url(r'^testbed/labels', include('testbed.labels.urls')),
 
