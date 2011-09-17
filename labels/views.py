@@ -38,10 +38,12 @@ def print_pdf(request, tag_id):
             url=[Paragraph(tag.url,styleN)]
                                    
             qrcode=[]
-            qrcode.append(Image(tag.qrcode.path, 0.3*height, 0.3*height))           
+            if tag.qrcode:
+                qrcode.append(Image(tag.qrcode.path, 0.3*height, 0.3*height))           
             
             logo=[]
-            logo.append(Image(tag.logo.path, 0.4*height, 0.4*height))
+            if tag.logo:
+                logo.append(Image(tag.logo.path, 0.4*height, 0.4*height))
             
             logo_frame = Frame(x1,  y1+.5*height, .5*width, .5*height, showBoundary=0 )
             slogan_frame = Frame(x1,y1+.1*height, .5*width, .4*height, showBoundary=0)
