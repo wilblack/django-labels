@@ -3,4 +3,9 @@
 static/logos/*
 labels/static/logos/*
 labels/static/qrcodes/*
+media/images/logos/*
+media/images/qrcodes/*
+
+media/media/images/logos/*
+media/media/images/qrcodes/*
 

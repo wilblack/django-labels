@@ -50,12 +50,12 @@ USE_L10N = True
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ROOT_PATH
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'http://theopenforest.com:8090/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
