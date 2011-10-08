@@ -11,7 +11,7 @@ class Tag(models.Model):
     contact2 = models.CharField(max_length=100, blank=True)
     contact3 = models.CharField(max_length=100, blank=True)
     url = models.URLField(max_length=100, blank=True)
-    logo = models.ImageField(upload_to='/home/wilblack/django-projects/testbed/media/images/logos', blank="True")
+    logo = models.ImageField(upload_to='/media/images/logos', blank="True")
     qrcode = models.ImageField(upload_to='media/images/qrcodes', blank="True")
     #version = models.ForeignKey('TagVersion', blank=True, null=True)
     author = models.CharField(max_length=100, blank=True)
