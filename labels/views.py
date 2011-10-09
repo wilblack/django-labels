@@ -20,9 +20,29 @@ def new(request):
 
     return render_to_response('labels/tag_form.html', {'form':form},context_instance=RequestContext(request) )
 
-
-
 def print_pdf(request, tag_id):
+    from reportlab.pdfgen.canvas import Canvas
+    from labels.pdf_templates import LabelPDF
+             
+    tag = get_object_or_404(Tag, pk=tag_id)
+  
+    fname = "mylabels.pdf"
+    response = HttpResponse(mimetype='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=%s' %(fname)
+       
+    c  = Canvas(response)
+    pdf = LabelPDF(tag)
+    pdf.showBoundary=1
+    c = pdf.draw_frames(c)
+    
+    c.save()    
+           
+    return response
+
+    tv = {'tag_id':tag_id}
+    return render_to_response("labels/print.html",tv)
+
+def ORIGINAL_print_pdf(request, tag_id):
     from reportlab.pdfgen.canvas import Canvas
     from reportlab.lib.styles import getSampleStyleSheet
     from reportlab.lib.units import inch
@@ -63,6 +83,7 @@ def print_pdf(request, tag_id):
             if tag.logo:
                 logo.append(Image(tag.logo.path, 0.4*height, 0.4*height))
             
+            # Define frames and sizes here.
             logo_frame = Frame(x1,  y1+.5*height, .5*width, .5*height, showBoundary=0 )
             slogan_frame = Frame(x1,y1+.1*height, .5*width, .4*height, showBoundary=0)
             
