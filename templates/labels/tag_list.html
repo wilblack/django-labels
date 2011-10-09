@@ -6,8 +6,11 @@
 <div>
 {% for tag in object_list %}
 <strong>{{tag.name}}</strong> v{{tag.tagversion_set.all.0.version_num}} by {{tag.author}}  Entered: {{tag.entered}}
-  <form action="/labels/print/{{tag.id}}/">
-  	<input type="submit" value="Print"/>
+   <form action="/labels/print/{{tag.id}}/default/">
+  	<input type="submit" value="Print default tags"/>
+  </form>
+  <form action="/labels/print/{{tag.id}}/avery5264/">
+  	<input type="submit" value="Print Avery 5264 tags"/>
   </form>
   <form action="/labels/edit/{{tag.id}}/">
   	<input type="submit" value="Edit"/>

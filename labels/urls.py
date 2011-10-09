@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     (r'delete/(?P<object_id>\d+)/?$', delete_object, {'model': Tag, 'post_delete_redirect':'/labels/list/'} ),
     
     (r'list/$', object_list, {'queryset': Tag.objects.all()}),
-    url(r'print/(?P<tag_id>\d+)/$', 'labels.views.print_pdf'),
+    url(r'print/(?P<tag_id>\d+)/(?P<type>\w+)/$', 'labels.views.print_pdf'),
     (r'$', object_list, {'queryset': Tag.objects.all()}),
        
 )

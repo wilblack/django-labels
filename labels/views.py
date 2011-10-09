@@ -20,9 +20,10 @@ def new(request):
 
     return render_to_response('labels/tag_form.html', {'form':form},context_instance=RequestContext(request) )
 
-def print_pdf(request, tag_id):
+def print_pdf(request, tag_id, type):
     from reportlab.pdfgen.canvas import Canvas
     from labels.pdf_templates import LabelPDF
+    from reportlab.lib.pagesizes import letter   
              
     tag = get_object_or_404(Tag, pk=tag_id)
   
@@ -30,11 +31,11 @@ def print_pdf(request, tag_id):
     response = HttpResponse(mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename=%s' %(fname)
        
-    c  = Canvas(response)
-    pdf = LabelPDF(tag)
-    pdf.showBoundary=1
+    c  = Canvas(response, pagesize=letter)
+    pdf = LabelPDF(tag,type)
+    #pdf.showBoundary=1  # Turns this on for debugging purposes.
     c = pdf.draw_frames(c)
-    
+     
     c.save()    
            
     return response
