@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     #(r'new/$', create_object, {'model': Tag} ),
     url(r'new/$', 'labels.views.new' ),
     
-    (r'edit/(?P<object_id>\d+)/?$', update_object, {'form_class': TagForm} ),
+    (r'edit/(?P<object_id>\d+)/?$', 'labels.views.edit' ),
     (r'delete/(?P<object_id>\d+)/?$', delete_object, {'model': Tag, 'post_delete_redirect':'/labels/list/'} ),
     
     (r'list/$', object_list, {'queryset': Tag.objects.all()}),

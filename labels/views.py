@@ -20,6 +20,20 @@ def new(request):
 
     return render_to_response('labels/tag_form.html', {'form':form},context_instance=RequestContext(request) )
 
+
+def edit(request, label_id):
+    if request.method == 'POST'
+        form = TagForm(request.POST)
+        if form.is_valid():
+            return HttpResponseredirect("/labels/list/")
+    else:
+        tag = Tag.obeject.get_object_or_404(Tag, pk=request.POST["tag_id"])
+        form = TagForm(form)
+    return render_to_response("labels/tag_form.html", {"form",form},
+            context_instance=RequestContext(request))
+
+
+
 def print_pdf(request, tag_id, type):
     from reportlab.pdfgen.canvas import Canvas
     from labels.pdf_templates import LabelPDF
