@@ -15,7 +15,8 @@ local printer.
 Templates
 ---------
 Templates are PDF's that layout labels for printing. Labels comes with two templates.
-More templates can be defined in 
+More templates can be defined in label/pdf_templates.py by added them to the 
+LabelPDF class.
 
 default : 
   Default template products a PDF that divides an 8.5 x 11 paper into two columns 
