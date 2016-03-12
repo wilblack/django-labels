@@ -18,27 +18,27 @@ class Tag(models.Model):
     template = models.CharField(max_length=100, blank=True)
     entered = models.DateTimeField(auto_now=True)
     modified = models.DateTimeField(auto_now_add=True)
-        
+
     def __unicode__(self):
         return self.name
-    
+
 class TagVersion(models.Model):
     tag = models.ForeignKey(Tag)
-    version_num = models.PositiveIntegerField(max_length=100, blank=True)
+    version_num = models.PositiveIntegerField(blank=True)
     entered = entered = models.DateTimeField(auto_now=True)
-    
+
     def __unicode__(self):
         return "%s v%s" %(self.tag.name, self.version_num)
-    
+
 @receiver(post_save, sender=Tag)
 def tag_save_handler(sender, **kwargs):
     # Check to see if tag already exits
-    tag = kwargs['instance']   
+    tag = kwargs['instance']
     tv = TagVersion.objects.filter(tag=tag)
     if tv:
         # Add a new version
         tv = tv[0]
-        version_num = tv.version_num + 1  
+        version_num = tv.version_num + 1
     else:
         # Create a new version
         version_num = 1
