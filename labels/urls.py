@@ -4,9 +4,6 @@ from labels.models import Tag
 
 from django import forms
 
-#from django.views.generic.create_update import delete_object, update_object
-
-#from django.views.generic.list_detail import object_list
 
 from labels import views as views
 
