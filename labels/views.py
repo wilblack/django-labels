@@ -34,7 +34,7 @@ def new(request):
 
         if form.is_valid():
             instance = form.save()
-            return HttpResponseRedirect('/labels/edit/%s' %instance.id)
+            return reverse_lazy("home")
 
     else:
        form = TagForm()
