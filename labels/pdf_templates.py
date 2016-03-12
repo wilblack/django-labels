@@ -16,7 +16,8 @@ Each template defines a
         -x1 and y1 are cordenates for the frames, depend on row and column
         -"showBoundary" shows a black line in the border of the frame
         -styleN is a dictionary(you can add more elements) and apply the style
-            to the elements marked with this style
+            to the elements marked with this style. More info can be obtained
+            from the documentation.
 
 """
 from reportlab.platypus import Paragraph, Frame, Image
