@@ -23,6 +23,7 @@ Each template defines a
 from reportlab.platypus import Paragraph, Frame, Image
 from reportlab.lib.units import inch, mm
 from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.styles import ParagraphStyle
 
 class LabelPDF():
     def __init__(self, tag, type="default"):
